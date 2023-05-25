@@ -1,0 +1,23 @@
+
+<div class="d-grid gap-2 col-4 mx-auto">
+    <div class="row mt-5 text-center">
+      <div class="col-xs-12">
+        <img src="../assets/simultanQLogo.png" alt="The colourful logo of the SimultanQ App" width="60%" height="auto" >
+      </div>
+<h5>
+</h5>
+<div>
+  
+        <label class="form-label" for="form1"> <h4 style="color: rgb(25, 139, 59);">Enter Quiz PIN:</h4> </label>
+        <input type="text" id="form1" class="form-control" maxlength="4" #pin/>
+        <div class="row mt-5 text-center"></div>
+        <div class="col-xs-12">
+          <label class="form-label" for="form1"> <h4 style="color: rgb(25, 139, 59);">Enter your name:</h4> </label>
+          <input type="text" id="form2" class="form-control" maxlength="12" #name/>
+        <button type="button" class="btn btn-success btn-lg mr-2 " (click)="startQuiz(pin.value, name.value)">PLAY</button>
+        <!-- <p>{{pin.value}}</p> -->
+        </div>
+        
+
+</div>
+</div>

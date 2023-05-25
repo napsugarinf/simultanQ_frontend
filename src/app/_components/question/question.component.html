@@ -1,0 +1,87 @@
+<div class="d-grid gap-2 col-4 mx-auto">
+    <div class="row mt-5 text-center">
+      <div class="col-xs-12">
+        <img src="../assets/simultanQLogo.png" alt="The colourful logo of the SimultanQ App" width="60%" height="auto" >
+      </div>
+<h5>
+</h5>
+<div>
+  
+        <label class="form-label" for="form1"> <h4 style="color: rgb(25, 139, 59);">Your name: {{ passDataService.myDataName}}</h4> </label>
+   
+        <div class="row mt-5 text-center"></div>
+        <div class="col-xs-12">
+            <button type="button" class="btn btn-success btn-lg mr-2 " (click)="startQuiz()">START</button>
+        </div> 
+        
+
+</div>
+</div>
+
+
+<div *ngIf="questionList.length > 0">
+  <h3>Question {{ currentQuestion + 1 }} of {{ questionList.length }}</h3>
+  <p>{{ questionList[currentQuestion].text }}</p>
+
+  <ul>
+    <li *ngFor="let option of questionList[currentQuestion].answers; let i = index">
+      <label>
+        <input type="radio" name="answer" (change)="answer(currentQuestion, option)" [checked]="i === selectedAnswerIndex">
+        {{ option.description }}
+      </label>
+    </li>
+  </ul>
+
+  <button (click)="previousQuestion()" [disabled]="currentQuestion === 0">Previous</button>
+  <button (click)="nextQuestion()" [disabled]="currentQuestion === questionList.length - 1">Next</button>
+</div>
+
+
+<div *ngIf="counter > 0">
+    <p>Time remaining: {{ counter }} seconds</p>
+  </div>
+  <div>
+    <p>Progress: {{ getProgressPercent() }}%</p>
+  </div>
+  <div *ngIf="isQuizCompleted">
+    <h2>Quiz Completed</h2>
+    <p>Correct Answers: {{ correctAnswer }}</p>
+    <p>Incorrect Answers: {{ inCorrectAnswer }}</p>
+    <p>Points: {{ points }}</p>
+  </div>
+
+
+<!-- 
+<div>
+    <table class="style_table">
+      <thead>
+        <tr>
+          <th>Quiz PIN</th>
+          <th>Quiz title</th>
+          <th>Questions</th>
+          <th>Answers</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ passDataService.myDataQuiz?.pin }}</td>
+          <td>{{ passDataService.myDataQuiz?.title }}</td>
+
+          <td>
+
+            <tr *ngFor="let q of passDataService.myDataQuiz?.questions">
+                <td>{{ q.text }}</td>
+                <td>
+                  <tr *ngFor="let a of q.answers">
+                    <td>{{ a.description }}</td>
+                  </tr>
+                </td>
+              </tr>
+          </td>
+        </tr>
+      
+       
+      </tbody>
+    </table>
+  </div>
+   -->
