@@ -10,7 +10,13 @@ import { CreateComponent } from './_components/create/create.component';
 import { QuestionComponent } from './_components/question/question.component';
 import { LoginComponent } from './_components/login/login.component';
 import { RegisterComponent } from './_components/register/register.component';
-import { AddquizComponent } from './_components/addquiz/addquiz.component';
+import { CreateQuizComponent } from './_components/create/host-dashboard/create-quiz/create-quiz.component';
+import { GetquestionComponent } from './_components/getquestion/getquestion.component';
+import { PassDataService } from './_services/pass-data.service';
+import { PlayquizService } from './_services/playquiz.service';
+import { HostDashboardComponent } from './_components/create/host-dashboard/host-dashboard.component';
+import { ListQuizzesComponent } from './_components/create/host-dashboard/list-quizzes/list-quizzes.component';
+import { QuizLeaderboardComponent } from './_components/create/host-dashboard/quiz-leaderboard/quiz-leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +27,11 @@ import { AddquizComponent } from './_components/addquiz/addquiz.component';
     QuestionComponent,
     LoginComponent,
     RegisterComponent,
-    AddquizComponent
+    CreateQuizComponent,
+    GetquestionComponent,
+    HostDashboardComponent,
+    ListQuizzesComponent,
+    QuizLeaderboardComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +39,7 @@ import { AddquizComponent } from './_components/addquiz/addquiz.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [PassDataService, PlayquizService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

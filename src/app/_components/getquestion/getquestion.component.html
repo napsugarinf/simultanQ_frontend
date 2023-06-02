@@ -1,0 +1,80 @@
+
+<div class="d-grid gap-2 col-4 mx-auto">
+  <div class="row mt-5 text-center">
+    <div class="col-xs-12">
+      <img src="../assets/simultanQLogo.png" alt="The colourful logo of the SimultanQ App" width="60%" height="auto">
+    </div>
+    <h5></h5>
+    <h3>{{ receivedPin }}</h3>
+    <div *ngFor="let string of greetings">
+      <div class="container">
+        <p>{{ string }}</p>
+      </div>
+    </div>
+
+    <div *ngIf="quizCompleted">
+      <h2>Quiz Completed</h2>
+      <!-- Add any additional content or styling for the completion message -->
+    </div>
+
+    <div *ngIf="question && !quizCompleted">
+      <h2>{{ question.text }}</h2>
+      <ul>
+        <li *ngFor="let answer of question.answers">
+          <label>
+            <input type="radio" name="answer" [value]="answer.id" (change)="selectAnswer(answer.id)">
+            {{ answer.description }}
+          </label>
+        </li>
+      </ul>
+      <button (click)="submitAnswer()">Submit Answer</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="d-grid gap-2 col-4 mx-auto">
+    <div class="row mt-5 text-center">
+      <div class="col-xs-12">
+        <img src="../assets/simultanQLogo.png" alt="The colourful logo of the SimultanQ App" width="60%" height="auto" >
+      </div>
+<h5>
+</h5>
+<h3>{{receivedPin}}</h3>
+<div *ngFor="let string of greetings">
+    <div class="container">
+     <p>{{string}}</p>
+    </div>
+   </div>
+
+   <div *ngIf="question">
+    <h2>{{ question.text }}</h2>
+    <ul>
+      <li *ngFor="let answer of question.answers">
+        <label>
+          <input type="radio" name="answer" [value]="answer.id" (change)="selectAnswer(answer.id)">
+          {{ answer.description }}
+        </label>
+      </li>
+    </ul>
+    <button (click)="submitAnswer()">Submit Answer</button>
+  </div> -->
+
+
+   <!-- <form #loginForm=ngForm>
+    <div>
+     <br>
+     <textarea autocomplete="off" placeholder="Type Your Message..." name="newmessage" [(ngModel)]="newmessage" required></textarea>
+     
+     <button class="btn btn-primary" (click)="startQuiz()" [disabled]="!loginForm.valid">Send</button>
+    </div>
+   </form> -->

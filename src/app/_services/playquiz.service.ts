@@ -24,6 +24,9 @@ export class PlayquizService {
   getAll() {
     return this.http.get(baseUrl)
   }
+  getAllByUserId(userId: string) {
+    return this.http.get(`${baseUrl}/userid/${userId}`);
+  }
 
   getById(id: number) {
     return this.http.get(`${baseUrl}/id/${id}`)

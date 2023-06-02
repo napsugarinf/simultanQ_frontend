@@ -1,0 +1,51 @@
+<div class="d-grid gap-2 col-4 mx-auto">
+  <div class="row mt-5 text-center">
+    <div class="col-xs-12">
+      <img src="../assets/simultanQLogo.png" alt="The colourful logo of the SimultanQ App" width="30%" height="auto">
+    </div>
+  </div>
+
+  <div class="row mt-5 text-center">
+    <div class="col-xs-12">
+      <h5 style="color: rgb(25, 139, 59);">
+        Add Quiz title
+      </h5>
+    </div>
+    <form (ngSubmit)="addQuiz()">
+      <div class="form-group">
+        <label for="title">Enter quiz title</label>
+        <input type="text" class="form-control" id="title" placeholder="Quiz Title" [(ngModel)]="quiz.title" name="title" required>
+      </div>
+      <div class="form-group">
+        <label for="nrOfQuestions">Enter number of questions</label>
+        <input type="number" class="form-control" id="nrOfQuestions" [(ngModel)]="nrOfQuestions" name="nrOfQuestions" required>
+        <button class="btn btn-primary mt-2" type="button" (click)="createGrid()">Create Question Grid</button>
+      </div>
+
+      <div *ngFor="let question of quiz.questions; let i = index" class="mt-4">
+        <hr>
+        <h6>Question {{ i + 1 }}</h6>
+        <div class="form-group">
+          <label for="questionText">Question Text</label>
+          <input type="text" class="form-control" id="questionText" [(ngModel)]="question.text" name="questionText" required>
+        </div>
+
+        <div *ngFor="let answer of question.answers; let j = index" class="mt-2">
+          <div class="form-group">
+            <label for="answerText">Answer {{ j + 1 }}</label>
+            <input type="text" class="form-control" id="answerText" [(ngModel)]="answer.description" name="answerText" required>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="isCorrect" [(ngModel)]="answer.correct" name="isCorrect">
+            <label class="form-check-label" for="isCorrect">Correct Answer</label>
+          </div>
+          <!-- <button class="btn btn-danger" type="button" (click)="removeAnswer(question, j)">Remove Answer</button> -->
+        </div>
+
+        <button class="btn btn-success" type="button" (click)="addAnswer(question)">Add Answer</button>
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-4">Save Quiz</button>
+    </form>
+  </div>
+</div>

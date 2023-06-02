@@ -6,6 +6,8 @@ import { Result } from 'src/app/_models/result.model';
 import { PlayquizService } from 'src/app/_services/playquiz.service';
 import { QuestionComponent } from '../question/question.component';
 import { PassDataService } from 'src/app/_services/pass-data.service';
+import { PlayerAnswer } from 'src/app/_models/player-answer.model';
+import { Answer } from 'src/app/_models/answer.model';
 
 @Component({
   selector: 'app-play',
@@ -15,38 +17,37 @@ import { PassDataService } from 'src/app/_services/pass-data.service';
 })
 export class PlayComponent implements OnInit  {
 
-  //@Output() myData = new EventEmitter<Quiz>();
 
   constructor(private playQuizService: PlayquizService, public passDataService: PassDataService,
     private router: Router){ }
  
-  integerUnsigned: string = '^[0-9]*$';
-  quizPIN = '';
-  text: Object | undefined;
   quiz? : Quiz;
   name? : string;
 
   ngOnInit(): void {
-    
-    
+  
   }
-  startQuiz(pin: string, name: string){
-    this.quizPIN=pin;
-    this.name=name;
-    this.load();    
-    this.router.navigate(['/question'])
-
+  startQuiz(pin: string, name: string) {
+    this.playQuizService.getByPIN2(pin).subscribe(
+      (quiz: Quiz) => {
+        // Quiz found
+        this.quiz = quiz;
+        this.passDataService.myDataQuiz = this.quiz;
+        this.passDataService.myDataName = name;
+        this.passDataService.myDataPIN = pin;
+        this.router.navigate(['/getquestion']);
+      },
+      (error: any) => {
+        // Quiz not found
+        console.log("Error:", error);
+        alert("Quiz with PIN " + pin + " does not exist.");
+        // You can customize the alert message or use a different UI component to display the message
+        
+      }
+    );
   }
   
-  load(){
-this.playQuizService.getByPIN2(this.quizPIN).subscribe((response: any) => {
-  //console.log(response);
-  this.quiz = response;
-  this.passDataService.myDataQuiz=this.quiz;
-  this.passDataService.myDataName=this.name;
-});
-
-    }
   }
+
 
 

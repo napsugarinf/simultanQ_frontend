@@ -7,5 +7,6 @@ import { Quiz } from '../_models/quiz.model';
 export class PassDataService {
   public myDataQuiz?: Quiz ;
   public myDataName?: string ;
+  public myDataPIN?: string;
   constructor() { }
 }

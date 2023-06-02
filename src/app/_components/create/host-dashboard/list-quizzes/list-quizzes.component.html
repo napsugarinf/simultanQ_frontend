@@ -1,0 +1,32 @@
+<div class="d-grid gap-2 col-4 mx-auto">
+    <div class="row mt-5 text-center">
+      <div class="col-xs-12">
+        <img src="../assets/simultanQLogo.png" alt="The colourful logo of the SimultanQ App" width="30%" height="auto">
+      </div>
+    </div>
+    <div class="row mt-5 text-center">
+        <div class="col-xs-12">
+          <h5 style="color: rgb(25, 139, 59);">
+            My quizzes
+          </h5>
+        </div>
+    </div>
+    <table >
+        <thead>
+          <tr style="color: rgb(25, 139, 59);">
+            <th>PIN</th>
+            <th>Title</th>
+            <th>Start quiz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let quiz of displayedQuizzes">
+            <td>{{ quiz.pin }}</td>
+            <td>{{ quiz.title }}</td>
+            <td>  <button class="btn btn-primary" (click)="startQuiz()">Start quiz</button></td>
+          </tr>
+        </tbody>
+      </table>
+       
+</div>
+

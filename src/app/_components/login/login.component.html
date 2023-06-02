@@ -1,1 +1,27 @@
-<p>login works!</p>
+<div class="d-grid gap-2 col-4 mx-auto">
+    <div class="row mt-5 text-center">
+      <div class="col-xs-12">
+        <img src="../assets/simultanQLogo.png" alt="The colourful logo of the SimultanQ App" width="30%" height="auto" >
+      </div>
+  <h5>
+  </h5>
+  <div>
+    <div class="row mt-5 text-center">
+      <div class="col-xs-12">
+  
+        <form>
+                <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control"  placeholder="Enter email" [(ngModel)]= "user.email" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)] = "user.password" [ngModelOptions]="{standalone: true}">
+        </div>
+        <button type="submit" class="btn btn-primary mr-2" (click)="login()">Login</button>
+        <button type="submit" class="btn btn-success mr-2" (click)="back()">Cancel</button>
+      </form>
+  
+    
+  </div>
+  </div>

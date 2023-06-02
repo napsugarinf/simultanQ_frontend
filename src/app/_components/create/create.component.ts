@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 export class CreateComponent {
   constructor(private router: Router) { }
 Login(){
-  this.router.navigate(['/login'])
+  this.router.navigate(['/create/login'])
 }
 Register(){
-  this.router.navigate(['/register'])
+  this.router.navigate(['/create/register'])
 
 }
 

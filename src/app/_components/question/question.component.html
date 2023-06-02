@@ -19,6 +19,23 @@
 </div>
 
 
+<!-- <h2>{{ quiz.title }}</h2>
+
+<div *ngFor="let question of quiz.questions">
+  <h4>{{ question.text }}</h4>
+
+  <ul>
+    <li *ngFor="let answer of question.answers">
+      <label>
+        <input type="radio" name="question{{ question.id }}" [value]="answer.id" (change)="selectAnswer(question, answer)">
+        {{ answer.description }}
+      </label>
+    </li>
+  </ul>
+</div> -->
+
+<button (click)="submitAnswers()">Submit Answers</button>
+<!-- 
 <div *ngIf="questionList.length > 0">
   <h3>Question {{ currentQuestion + 1 }} of {{ questionList.length }}</h3>
   <p>{{ questionList[currentQuestion].text }}</p>
@@ -49,7 +66,7 @@
     <p>Incorrect Answers: {{ inCorrectAnswer }}</p>
     <p>Points: {{ points }}</p>
   </div>
-
+ -->
 
 <!-- 
 <div>

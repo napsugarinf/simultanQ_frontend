@@ -6,6 +6,6 @@ export class Quiz {
     pin: string | undefined;
     title: string | undefined;
     questions: Question[] | undefined;
-    results: Result[] | undefined;
-
+    userId: string | undefined;
+    //results: Result[] | undefined;
 }
