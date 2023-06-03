@@ -1,6 +1,23 @@
 <h1>Quiz Leaderboard</h1>
 
+
 <table>
+  <thead>
+    <tr>
+      <th>Player ID</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let participant of participants | keyvalue">
+      <td>{{ participant.key }}</td>
+      <td>{{ participant.value }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- <table>
   <thead>
     <tr>
       <th>Rank</th>
@@ -9,10 +26,10 @@
     </tr>
   </thead>
   <tbody>
-    <!-- <tr *ngFor="let player of leaderboardData">
+     <tr *ngFor="let player of leaderboardData">
       <td>{{ player.rank }}</td>
       <td>{{ player.name }}</td>
       <td>{{ player.score }}</td>
     </tr> -->
-  </tbody>
-</table>
+  <!-- </tbody>
+</table> -->

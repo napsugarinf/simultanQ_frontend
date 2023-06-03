@@ -46,7 +46,7 @@ export class GetquestionComponent implements OnInit {
     const _this = this;
     this.stompClient.connect({}, function (frame: string) {
       console.log('Connected: ' + frame);
-      _this.stompClient.subscribe(`/quiz/${_this.receivedPin}`, (result: { body: any; }) => {
+      _this.stompClient.subscribe(`/quiz/${_this.receivedPin}/${_this.playerId}`, (result: { body: any; }) => {
         const message = result.body;
         try {
           const question = JSON.parse(message);
@@ -80,7 +80,7 @@ export class GetquestionComponent implements OnInit {
 
 
   startQuiz() {
-    this.stompClient.send(`/game/startQuiz/${this.receivedPin}`, {}, this.receivedPin); 
+    this.stompClient.send(`/game/startQuiz/${this.receivedPin}/${this.playerId}`, {'playerId' : this.playerId}, this.receivedPin); 
   }
 
   showQuiz(quiz: any) {
@@ -98,7 +98,7 @@ export class GetquestionComponent implements OnInit {
       const userResponse = this.selectedAnswerId.toString(); 
 
       // Send the user's response to the server
-      this.stompClient.send(`/game/submitResponse/${this.receivedPin}/${this.question?.id}`, {'playerId': this.playerId}, userResponse);
+      this.stompClient.send(`/game/submitResponse/${this.receivedPin}/${this.question?.id}/${this.playerId}`, {'playerId': this.playerId}, userResponse);
     } else {
       // No answer selected, handle accordingly (e.g., show an error message)
     }
