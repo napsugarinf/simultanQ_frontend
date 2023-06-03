@@ -5,12 +5,9 @@
       <img src="../assets/simultanQLogo.png" alt="The colourful logo of the SimultanQ App" width="60%" height="auto">
     </div>
     <h5></h5>
-    <h3>{{ receivedPin }}</h3>
-    <div *ngFor="let string of greetings">
-      <div class="container">
-        <p>{{ string }}</p>
-      </div>
-    </div>
+    <h4 style="color: rgb(25, 139, 59);"> Quiz pin: {{ receivedPin }}</h4>
+    <h4 style="color: rgb(139, 42, 25);">Player: {{ playerId }}</h4>
+  
 
     <div *ngIf="quizCompleted">
       <h2>Quiz Completed</h2>
