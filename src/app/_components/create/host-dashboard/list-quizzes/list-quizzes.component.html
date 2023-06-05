@@ -23,7 +23,7 @@
           <tr *ngFor="let quiz of displayedQuizzes">
             <td>{{ quiz.pin }}</td>
             <td>{{ quiz.title }}</td>
-            <td>  <button class="btn btn-primary" (click)="startQuiz()">Start quiz</button></td>
+            <td>  <button class="btn btn-primary" (click)="startQuiz( quiz.pin)">Start quiz</button></td>
           </tr>
         </tbody>
       </table>

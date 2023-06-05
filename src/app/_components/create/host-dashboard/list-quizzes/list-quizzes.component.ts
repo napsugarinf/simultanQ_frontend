@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { PassDataService } from 'src/app/_services/pass-data.service';
 import { PlayquizService } from 'src/app/_services/playquiz.service';
 import { UserIdServiceService } from 'src/app/_services/user-id-service.service';
 
@@ -12,7 +13,13 @@ import { UserIdServiceService } from 'src/app/_services/user-id-service.service'
 export class ListQuizzesComponent {
 userId = this.userIdService.myDataUserId || '';
 displayedQuizzes: { pin: string, title: string }[] = [];
-constructor(private playQuizService: PlayquizService, private http: HttpClient, private userIdService: UserIdServiceService, private router: Router) {}
+
+constructor(private playQuizService: PlayquizService, 
+  private http: HttpClient, 
+  private userIdService: UserIdServiceService, 
+  private passDataService: PassDataService, 
+  private router: Router) {}
+
 ngOnInit(){
   
   this.loadQuizzes();
@@ -32,7 +39,8 @@ loadQuizzes() {
 } );
 }
 
-startQuiz(){
+startQuiz(pin: string){
+  this.passDataService.myDataPlayQuizPin=pin;
   this.router.navigate(['create/hostdashboard/quizLeaderboard'])
 }
 }

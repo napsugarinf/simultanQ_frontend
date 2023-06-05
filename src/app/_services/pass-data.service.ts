@@ -8,5 +8,6 @@ export class PassDataService {
   public myDataQuiz?: Quiz ;
   public myDataName?: string ;
   public myDataPIN?: string;
+  public myDataPlayQuizPin? : string;
   constructor() { }
 }
