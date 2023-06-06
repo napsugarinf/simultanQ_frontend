@@ -19,7 +19,7 @@ export class QuizLeaderboardComponent implements OnInit{
   ngOnInit() {
     this.receivedPin = this.passDataService.myDataPlayQuizPin || '';
     console.log('this received pin:', this.receivedPin);
-    this.connect();
+   
   }
 
   connect() {
@@ -61,5 +61,8 @@ export class QuizLeaderboardComponent implements OnInit{
     updateParticipants(participants: any) {
       // Update the participants variable with the received data
       this.participants = participants;
+    }
+    startQuiz(){
+      this.connect();
     }
 }

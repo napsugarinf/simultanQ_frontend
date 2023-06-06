@@ -1,4 +1,4 @@
-<div class="d-grid gap-2 col-4 mx-auto">
+<!-- <div class="d-grid gap-2 col-4 mx-auto">
     <div class="row mt-5 text-center">
       <div class="col-xs-12">
         <img src="../assets/simultanQLogo.png" alt="The colourful logo of the SimultanQ App" width="30%" height="auto">
@@ -28,5 +28,44 @@
         </tbody>
       </table>
        
+</div> -->
+
+
+
+<div class="d-grid gap-2 col-4 mx-auto">
+  <div class="row mt-5 text-center">
+    <div class="col-xs-12">
+      <img src="../assets/simultanQLogo.png" alt="The colourful logo of the SimultanQ App" width="30%" height="auto">
+    </div>
+  </div>
+  <div class="row mt-5 text-center">
+    <div class="col-xs-12">
+      <h5 style="color: rgb(25, 139, 59);">
+        My quizzes
+      </h5>
+    </div>
+  </div>
+  <ng-container *ngIf="displayedQuizzes && displayedQuizzes.length > 0; else noQuizzes">
+    <table>
+      <thead>
+        <tr style="color: rgb(25, 139, 59);">
+          <th>PIN</th>
+          <th>Title</th>
+          <th>Start quiz</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let quiz of displayedQuizzes" style="color: rgb(25, 139, 59);">
+          <td>{{ quiz.pin }}</td>
+          <td>{{ quiz.title }}</td>
+          <td><button class="btn btn-primary mr-2 mt-2" (click)="startQuiz(quiz.pin)">Activate quiz</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-template #noQuizzes>
+    <h6 style="color: rgb(233, 55, 10);">No quizzes to show</h6>
+  </ng-template>
+
 </div>
 

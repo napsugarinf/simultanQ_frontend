@@ -43,6 +43,7 @@ isUpdateFromActive=false;
             this.http.post(`${baseUrl}/save`, bodyData, {responseType: 'text'}).subscribe((resultData: any) => {
               console.log(resultData);
               alert("User added successfully");
+              this.router.navigate(['/create/hostdashboard'])
             });
     
   }
