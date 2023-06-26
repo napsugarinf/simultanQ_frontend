@@ -72,7 +72,7 @@ export class GetquestionComponent implements OnInit {
   handleMessage(message: any) {
     if (message === "Quiz completed") {
       this.quizCompleted = true;
-      console.log("Quiz completed");
+      //console.log("Quiz completed");
     }
   }
  
