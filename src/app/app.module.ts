@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './_components/home/home.component';
 import { CreateComponent } from './_components/create/create.component';
-import { QuestionComponent } from './_components/question/question.component';
 import { LoginComponent } from './_components/login/login.component';
 import { RegisterComponent } from './_components/register/register.component';
 import { CreateQuizComponent } from './_components/create/host-dashboard/create-quiz/create-quiz.component';
@@ -24,7 +23,6 @@ import { QuizLeaderboardComponent } from './_components/create/host-dashboard/qu
     PlayComponent,
     HomeComponent,
     CreateComponent,
-    QuestionComponent,
     LoginComponent,
     RegisterComponent,
     CreateQuizComponent,

@@ -5,7 +5,6 @@ import { PlayComponent } from './_components/play/play.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './_components/home/home.component';
 import { CreateComponent } from './_components/create/create.component';
-import { QuestionComponent } from './_components/question/question.component';
 import { LoginComponent } from './_components/login/login.component';
 import { RegisterComponent } from './_components/register/register.component';
 import { CreateQuizComponent } from './_components/create/host-dashboard/create-quiz/create-quiz.component';
@@ -24,7 +23,6 @@ const routes: Routes = [
     {path: 'play', component: PlayComponent},
     {path: 'getquestion', component: GetquestionComponent},
     {path: 'create', component: CreateComponent},
-    {path: 'play/question', component: QuestionComponent},
     {path: 'create/login', component: LoginComponent},
     {path: 'create/register', component: RegisterComponent},
     {path: 'create/hostdashboard', component: HostDashboardComponent},

@@ -4,7 +4,6 @@ import { Question } from 'src/app/_models/question.model';
 import { Quiz } from 'src/app/_models/quiz.model';
 import { Result } from 'src/app/_models/result.model';
 import { PlayquizService } from 'src/app/_services/playquiz.service';
-import { QuestionComponent } from '../question/question.component';
 import { PassDataService } from 'src/app/_services/pass-data.service';
 import { PlayerAnswer } from 'src/app/_models/player-answer.model';
 import { Answer } from 'src/app/_models/answer.model';
