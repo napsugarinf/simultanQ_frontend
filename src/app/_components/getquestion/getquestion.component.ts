@@ -33,10 +33,9 @@ export class GetquestionComponent implements OnInit {
   ngOnInit() {
     this.receivedPin = this.passDataService.myDataPIN || '';
     const randomNumber = this.generateRandomNumber();
-    this.playerId = (this.passDataService.myDataName ||'')+randomNumber.toString();
+    this.playerId = (this.passDataService.myDataName ||'')+'_'+randomNumber.toString();
     //console.log(this.receivedPin);
-    this.connect();
-    
+      this.connect();
     //this.showQuiz();
   }
 
@@ -119,5 +118,26 @@ export class GetquestionComponent implements OnInit {
   tryAgain(){
     this.router.navigate(['/play'])
   }
+  // getMyScore(){
+  //     const quizPin = this.receivedPin; // Provide the quiz pin for which you want to fetch participants' data
+  //     const socket = new SockJS(`http://localhost:9001/quiz`);
+  //     this.stompClient = Stomp.over(socket);
+  //     const _this = this;
+  //     this.stompClient.connect({}, function (frame: string) {
+  //       console.log('Connected: ' + frame);
+  //       _this.stompClient.subscribe(`/quiz/${quizPin}`, (result: { body: any; }) => {
+           
+  //          try {
+  //         const participants = JSON.parse(result.body);
+  //         console.log(participants);
+  //          } catch (error) {
+  //            console.log('Message:', result.body);
+  
+  //          }
+         
+  //     });
+  //   }
+  //     );}
+  
 }
 

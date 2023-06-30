@@ -9,5 +9,6 @@ export class PassDataService {
   public myDataName?: string ;
   public myDataPIN?: string;
   public myDataPlayQuizPin? : string;
+  public isQuizActive?: boolean = false;
   constructor() { }
 }

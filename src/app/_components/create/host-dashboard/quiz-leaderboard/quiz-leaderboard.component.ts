@@ -14,6 +14,7 @@ export class QuizLeaderboardComponent implements OnInit{
   participants: Record<string, number> | undefined;
   receivedPin: string = '';
   private stompClient: any;
+  participantsJoined: boolean=false;
 
   constructor(private passDataService: PassDataService,  private changeDetectorRef: ChangeDetectorRef) { }
 
@@ -24,21 +25,6 @@ export class QuizLeaderboardComponent implements OnInit{
   }
 
 
-  // connect1() {
-  //   const quizPin = this.receivedPin; // Provide the quiz pin for which you want to fetch participants' data
-  //   const socket = new SockJS(`http://localhost:9001/quiz`);
-  //   this.stompClient = Stomp.over(socket);
-  //   const _this = this;
-  //   this.stompClient.connect({}, function (frame: string) {
-  //     console.log('Connected: ' + frame);
-  //     _this.stompClient.subscribe(`/quiz/${quizPin}`, (result: { body: any; }) => {
-  //       const participants = JSON.parse(result.body);
-  //       _this.updateParticipants(participants);
-  //   });
-  //   _this.listPlayers();
-  // }
-  //   );}
-
 
   connect() {
     const quizPin = this.receivedPin; // Provide the quiz pin for which you want to fetch participants' data
@@ -48,23 +34,19 @@ export class QuizLeaderboardComponent implements OnInit{
     this.stompClient.connect({}, function (frame: string) {
       console.log('Connected: ' + frame);
       _this.stompClient.subscribe(`/quiz/${quizPin}`, (result: { body: any; }) => {
+        // const participants = JSON.parse(result.body);
+        // _this.updateParticipants(participants);
+         
+         try {
         const participants = JSON.parse(result.body);
+        _this.participantsJoined=true;
         _this.updateParticipants(participants);
-         
-        // try {
-        //   const part = JSON.parse(message);
-        //   console.log('participants', part);
-         
         
-        // } catch (error) {
-        //   console.log('Message:', message);
-        // }
-      //   console.log(result.body);
-      //   const participants = JSON.parse(result.body);
-      //   console.log('Participants:', participants);
-      //   _this.participants = participants;
-      // });
-   
+         } catch (error) {
+           console.log('Message:', result.body);
+
+         }
+       
     });
     _this.listPlayers();
   }
@@ -94,7 +76,9 @@ export class QuizLeaderboardComponent implements OnInit{
 
     }
     startQuiz(){
-      
+      this.participants=undefined;
+      this.passDataService.isQuizActive=true;
+      console.log(this.passDataService.isQuizActive);
       this.connect();
     }
     endQuiz(){

@@ -8,8 +8,10 @@
       <h4 style="color: rgb(25, 139, 59);"> Quiz pin: {{ receivedPin }}</h4>
       <h4 style="color: rgb(25, 139, 59);"> <button class="btn btn-danger mr-2 mt-2" (click)="startQuiz()">Start quiz</button></h4>
     </div>
-
-
+<div *ngIf="!participantsJoined">
+No participants yet
+</div>
+<div *ngIf="participantsJoined">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -25,7 +27,7 @@
   </tbody>
 </table>
 <h4 style="color: rgb(25, 139, 59);"> <button class="btn btn-info mr-2 mt-2" (click)="endQuiz()"> End quiz</button></h4>
-
+</div>
 <!-- <table>
   <thead>
     <tr>
