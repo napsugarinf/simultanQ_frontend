@@ -1,6 +1,6 @@
 # SimultanQ
 
-##This is the frontend of my final thesis at University using the Angular Framework.
+## This is the frontend of my final thesis at University using the Angular Framework.
 
 The topic of my thesis is to implement an interactive quiz game without restricting the number of participating players using a web application. Quiz games are extremely popular nowadays and offer numerous advantages. People enjoy challenges, especially when presented in a playful form. Live quiz games provide an exciting and interactive experience as they allow players to compete with each other and test their knowledge. The multiplayer mode facilitates all of this. The fact that players participate simultaneously in the quiz game and there is the possibility of real-time tracking of results makes the game even more thrilling and can have a community-building impact.
 
